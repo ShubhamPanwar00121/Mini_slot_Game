@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b274c0af14d1404faffc11396688108, type: 3}
+  m_Name: SlotData
+  m_EditorClassIdentifier: 
+  slotCards:
+  - CardIndex: 0
+    Icon: {fileID: 21300000, guid: 0fd0e215ae2705c43950b1351ae2e831, type: 3}
+    multiFactor: 10
+    cardType: 0
+  - CardIndex: 1
+    Icon: {fileID: 21300000, guid: cce74cbd56a59dd45a9f05edd62c0087, type: 3}
+    multiFactor: 10
+    cardType: 0
+  - CardIndex: 2
+    Icon: {fileID: 21300000, guid: 01a13ae750f4ea947ad0a20c8a4e1700, type: 3}
+    multiFactor: 10
+    cardType: 0
+  - CardIndex: 3
+    Icon: {fileID: 21300000, guid: 1b34abc27de9ca84083e33fc126d9ff1, type: 3}
+    multiFactor: 10
+    cardType: 0
+  - CardIndex: 4
+    Icon: {fileID: 21300000, guid: 088031c26bbad9d4c87483dbb63d36d5, type: 3}
+    multiFactor: 10
+    cardType: 0
+  - CardIndex: 6
+    Icon: {fileID: 21300000, guid: ffcab9e682a60844ca3e4866a775c70a, type: 3}
+    multiFactor: 4
+    cardType: 5
+  - CardIndex: 7
+    Icon: {fileID: 21300000, guid: bfa5949a2cfc50642ab78b84fc610269, type: 3}
+    multiFactor: 3
+    cardType: 3
+  - CardIndex: 5
+    Icon: {fileID: 21300000, guid: 89c6978410a9b4d4a8c7a29e83dc0a8e, type: 3}
+    multiFactor: 2
+    cardType: 4
+  - CardIndex: 8
+    Icon: {fileID: 21300000, guid: 41742909c4538d244a4f924ee14f6a4c, type: 3}
+    multiFactor: 0
+    cardType: 2
+  - CardIndex: 9
+    Icon: {fileID: 21300000, guid: 84da606ec1b01b34cb69515a88d4ee31, type: 3}
+    multiFactor: 0
+    cardType: 1
