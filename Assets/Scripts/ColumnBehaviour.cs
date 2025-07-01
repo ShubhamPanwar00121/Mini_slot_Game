@@ -20,7 +20,7 @@ public class ColumnBehaviour : MonoBehaviour
         activeCardItems.Add(p);
         cardHeight = p.rectTransform.rect.height;
 
-        int toSpawn = Mathf.CeilToInt(Screen.height / (cardHeight + spacing));
+        int toSpawn = 3;
 
         for (int i = 0; i < toSpawn; i++)
         {
