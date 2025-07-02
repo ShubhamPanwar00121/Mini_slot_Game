@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SpinnManager : MonoBehaviour
 {
-    private WaitForSeconds inBetweenDelay = new WaitForSeconds(0.5f);
+    private WaitForSeconds inBetweenDelay = new WaitForSeconds(0.6f);
 
     private void OnEnable()
     {
