@@ -59,9 +59,6 @@ public class GameManager : MonoBehaviour
 
     private void DecideReward(CardBehaviour[,] finalMatrix)
     {
-        CustomEvents.InvokeCreditChanged(balance + 10000);
-
-        return;
         float totalReward = 0f;
         int rowsToCheck = 3;
         int columnCount = finalMatrix.GetLength(0);
@@ -78,13 +75,7 @@ public class GameManager : MonoBehaviour
 
                 if (x == 0)
                 {
-                    if (card.CardType == CardType.Wild)
-                    {
-                        baseType = CardType.Wild;
-                        matchCount += 1;
-                        matchedType = card.CardType;
-                    }
-                    else if (card.CardType != CardType.Scatter)
+                    if (card.CardType != CardType.Scatter)
                     {
                         baseType = card.CardType;
                         matchCount += 1;
@@ -97,7 +88,11 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    if (baseType == CardType.Wild && card.CardType != CardType.Scatter)
+                    if(card.CardType == CardType.Scatter)
+                    {
+                        break;
+                    }
+                    else if (baseType == CardType.Wild)
                     {
                         matchCount += 1;
                         baseType = card.CardType;
@@ -106,16 +101,11 @@ public class GameManager : MonoBehaviour
                     else if (card.CardType == baseType || card.CardType == CardType.Wild)
                     {
                         matchCount += 1;
-                        matchedType = card.CardType;
-                    }
-                    else
-                    {
-                        break;
                     }
                 }
             }
 
-            if (matchCount >= 3 && matchedType != CardType.Wild && matchedType != CardType.Scatter)
+            if (matchCount >= 3 && matchedType != CardType.Wild && matchedType != CardType.None)
             { 
                 totalReward += matchCount * GetCardMultiFact(baseType);
                 print(y);
@@ -136,7 +126,11 @@ public class GameManager : MonoBehaviour
 
         if (scatterCount >= 3)
         {
-            Debug.Log($"Scatter win! Count: {scatterCount}");
+            uiManager.GiveFreeSpin();
+        }
+        else
+        {
+            uiManager.NoReward();
         }
 
         if (totalReward > 0f)
@@ -146,7 +140,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("No win.");
+            
         }
     }
 
