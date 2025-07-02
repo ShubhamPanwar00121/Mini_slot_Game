@@ -30,6 +30,8 @@ public class UiManager : MonoBehaviour
 
     public void Spinn()
     {
+        GameManager.Instance.SetBalance(GameManager.Instance.GetBalance() - betAmount);
+        SetAmounts();
         CustomEvents.InvokeSpinn();
     }
 
@@ -49,6 +51,7 @@ public class UiManager : MonoBehaviour
     {
         coinPerLine = maxCoinPerLine;
         coinValue = maxCoinValue;
+        betAmount = coinPerLine * coinValue;
 
         SetUi();
     }
@@ -120,5 +123,10 @@ public class UiManager : MonoBehaviour
         betMax.gameObject.SetActive(canIncreaseBet);
         setTotalBetUi.UpdateUi(betAmount, canIncreaseBet, canDecreaseBet);
         SetAmounts();
+    }
+
+    public float GetBetAmount()
+    {
+        return betAmount;
     }
 }
