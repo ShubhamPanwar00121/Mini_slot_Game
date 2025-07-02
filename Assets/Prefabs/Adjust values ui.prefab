@@ -52,6 +52,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12c90b373e9e6c40a014762b56046c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeValueType: 0
+  increaseBtn: {fileID: 4337057542441093582}
+  DecreaseBtn: {fileID: 4337057542408656061}
+  valueText: {fileID: 4337057543072247681}
 --- !u!1 &4337057542089804934
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4117647}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -245,7 +249,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 4337057543338490702}
+  m_TargetGraphic: {fileID: 4337057542408656058}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -309,7 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4117647}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -366,7 +370,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 4337057542820504182}
+  m_TargetGraphic: {fileID: 4337057542441093583}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []

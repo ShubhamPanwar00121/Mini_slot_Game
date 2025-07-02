@@ -5,12 +5,12 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private SlotDataScriptable slotData;
     public static GameManager Instance;
-    private double betAmount;
     private double balance
     {
         get => double.Parse(PlayerPrefs.GetString("BALANCE", "100000"));
         set => PlayerPrefs.SetString("BALANCE", value.ToString());
     }
+    private UiManager uiManager;
 
     void Awake()
     {
@@ -41,14 +41,14 @@ public class GameManager : MonoBehaviour
         this.balance = balance;
     }
 
-    public double GetBet()
+    public UiManager GetUiManager()
     {
-        return betAmount;
+        return uiManager;
     }
 
-    public void SetBet(double betAmount)
+    public void SetUiManager(UiManager um)
     {
-        this.betAmount = betAmount;
+        uiManager = um;
     }
 }
 
