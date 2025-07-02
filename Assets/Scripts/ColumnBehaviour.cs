@@ -93,4 +93,12 @@ public class ColumnBehaviour : MonoBehaviour
         SlotCard sc = GameManager.Instance.GetRandomCard();
         lastRect.GetComponent<CardBehaviour>().SetCard(sc.Icon, sc.cardType, sc.multiFactor, sc.CardIndex);
     }
+    
+    public void ResetPosition(Vector2 startPosition)
+    {
+        parentRect.anchoredPosition = startPosition;
+        lastScrollPosSnap = startPosition.y;
+        topIndex = 0;
+        bottomIndex = activeCardItems.Count - 1;
+    }
 }

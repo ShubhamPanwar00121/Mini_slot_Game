@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SpinnAnimation : MonoBehaviour
@@ -15,6 +16,7 @@ public class SpinnAnimation : MonoBehaviour
     private State currentState = State.Idle;
     private float startY;
     private Vector2 targetStopPosition;
+    private List<CardBehaviour> cards = new List<CardBehaviour>();
 
     void OnEnable()
     {
@@ -56,7 +58,6 @@ public class SpinnAnimation : MonoBehaviour
                         elapsedTime = 0f;
                         currentState = State.StopBounce;
 
-                        // Calculate snapped stop position
                         float currentY = rectTransform.anchoredPosition.y;
                         float snappedY = Mathf.Round(currentY / 170f) * 170f;
                         targetStopPosition = new Vector2(startPosition.x, snappedY);
@@ -80,8 +81,38 @@ public class SpinnAnimation : MonoBehaviour
                 }
 
             case State.Done:
-                this.enabled = false;
+                AnimCompleteAction();
                 break;
         }
+    }
+
+    private void AnimCompleteAction()
+    {
+        cards.Clear();
+
+        foreach (Transform t in transform) 
+        {
+            if (t.TryGetComponent<CardBehaviour>(out CardBehaviour cb))
+            {
+                cards.Add(cb);
+            }
+        }
+
+        foreach (var c in cards)
+        {
+            c.transform.SetParent(transform.parent);
+        }
+
+        if (TryGetComponent<ColumnBehaviour>(out ColumnBehaviour col))
+        {
+            col.ResetPosition(startPosition);
+        }
+
+        foreach (var c in cards)
+        {
+            c.transform.SetParent(transform);
+        }
+
+        this.enabled = false;
     }
 }
