@@ -7,7 +7,7 @@ public class UiManager : MonoBehaviour
 {
     [SerializeField] private ChangeValueUi setCoinPerLineUi, setPerCoinValueUi, setTotalBetUi;
     [SerializeField] private Transform setBetPanel, betMax;
-    [SerializeField] private Text betText, creditText, FreeSpinText;
+    [SerializeField] private Text betText, creditText, FreeSpinText, winAmountText;
     public float CoinIncreaseTime = 1.5f;
 
     private float maxCoinPerLine = 10f;
@@ -43,6 +43,8 @@ public class UiManager : MonoBehaviour
     {
         betText.text = betAmount.ToString("F2");
         creditText.text = GameManager.Instance.GetBalance().ToString("F2");
+        FreeSpinText.text = "place your bet";
+        winAmountText.gameObject.SetActive(false);
     }
 
     public void Spinn()
@@ -56,20 +58,19 @@ public class UiManager : MonoBehaviour
         }
         CustomEvents.InvokeSpinn();
         FreeSpin = false;
-        FreeSpinText.gameObject.SetActive(false);
+        FreeSpinText.text = "good luck!";
+        winAmountText.gameObject.SetActive(false);
     }
 
     public void GiveFreeSpin()
     {
         FreeSpin = true;
-        FreeSpinText.gameObject.SetActive(true);
         FreeSpinText.text = "Free Spin!";
     }
 
-    public void NoReward()
+    public void NoFreeSpin()
     {
-        FreeSpinText.gameObject.SetActive(true);
-        FreeSpinText.text = "spin!";
+        FreeSpinText.text = "place your bet";
     }
 
     public void IncreaseBet()
@@ -174,8 +175,10 @@ public class UiManager : MonoBehaviour
         return coinValue * coinPerLine;
     }
 
-    public void GiveReward(double targetValue)
+    public void GiveReward(double targetValue, float increase)
     {
+        winAmountText.gameObject.SetActive(true);
+        winAmountText.text = "you won " + increase;
         StartCoroutine(IncreaseCreditText(targetValue));
     }
 

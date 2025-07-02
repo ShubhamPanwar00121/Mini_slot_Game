@@ -131,17 +131,13 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            uiManager.NoReward();
+            uiManager.NoFreeSpin();
         }
 
         if (totalReward > 0f)
         {
             float reward = totalReward * uiManager.GetPerCardBet();
-            CustomEvents.InvokeCreditChanged(balance + reward);
-        }
-        else
-        {
-            
+            CustomEvents.InvokeCreditChanged(balance + reward, reward);
         }
     }
 
@@ -161,7 +157,7 @@ public class GameManager : MonoBehaviour
 public static class CustomEvents
 {
     public static event Action<double> betChanged;
-    public static event Action<double> creditChanged;
+    public static event Action<double, float> creditChanged;
     public static event Action spinn;
     public static event Action<CardBehaviour[,]> spinnComplete;
 
@@ -170,9 +166,9 @@ public static class CustomEvents
         betChanged?.Invoke(val);
     }
 
-    public static void InvokeCreditChanged(double val)
+    public static void InvokeCreditChanged(double val1, float val2)
     {
-        creditChanged?.Invoke(val);
+        creditChanged?.Invoke(val1, val2);
     }
 
     public static void InvokeSpinn()
