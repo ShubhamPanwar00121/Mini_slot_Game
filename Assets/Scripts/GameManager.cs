@@ -102,16 +102,17 @@ public class GameManager : MonoBehaviour
                     {
                         matchCount += 1;
                     }
+                    else
+                    {
+                        break;
+                    }
                 }
             }
 
             if (matchCount >= 3 && matchedType != CardType.Wild && matchedType != CardType.None)
             { 
                 totalReward += matchCount * GetCardMultiFact(baseType);
-                print(y);
             }
-
-            print(matchedType);
         }
 
         int scatterCount = 0;
