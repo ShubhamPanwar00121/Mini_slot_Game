@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     public SlotCard GetRandomCard()
     {
-        int i = Random.Range(0, slotData.slotCards.Count);
+        int i = UnityEngine.Random.Range(0, slotData.slotCards.Count);
         return slotData.slotCards[i];
     }
 
@@ -48,5 +49,27 @@ public class GameManager : MonoBehaviour
     public void SetBet(double betAmount)
     {
         this.betAmount = betAmount;
+    }
+}
+
+public static class CustomEvents
+{
+    public static event Action<double> betChanged;
+    public static event Action<double> creditChanged;
+    public static event Action spinn;
+
+    public static void InvokeBetChanged(double val)
+    {
+        betChanged?.Invoke(val);
+    }
+
+    public static void InvokeCreditChanged(double val)
+    {
+        creditChanged?.Invoke(val);
+    }
+
+    public static void InvokeSpinn()
+    {
+        spinn?.Invoke();
     }
 }

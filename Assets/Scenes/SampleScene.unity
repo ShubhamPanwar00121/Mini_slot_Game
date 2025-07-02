@@ -331,10 +331,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startBounceTime: 0.2
-  spinTime: 6
+  spinTime: 4
   stopBounceTime: 0.5
   spinSpeed: 4000
-  bounceHeight: 30
+  bounceHeight: 60
 --- !u!114 &190585057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,10 +558,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startBounceTime: 0.2
-  spinTime: 6
+  spinTime: 4
   stopBounceTime: 0.5
   spinSpeed: 4000
-  bounceHeight: 30
+  bounceHeight: 60
 --- !u!1 &377235534
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,7 +671,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 17.999983}
+  m_AnchoredPosition: {x: 0, y: 17.999985}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &512611289
@@ -728,6 +728,7 @@ GameObject:
   - component: {fileID: 641939211}
   - component: {fileID: 641939210}
   - component: {fileID: 641939209}
+  - component: {fileID: 641939213}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -825,6 +826,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &641939213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641939208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ed12f0c13d060e49aab7109df3414cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  betText: {fileID: 1438694137}
+  creditText: {fileID: 1746971996}
 --- !u!1 &696644822
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,6 +850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 696644823}
   - component: {fileID: 696644824}
+  - component: {fileID: 696644825}
   m_Layer: 5
   m_Name: Slots Parent
   m_TagString: Untagged
@@ -879,6 +895,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: 0, y: 0, z: 0, w: 0}
   m_Softness: {x: 0, y: 0}
+--- !u!114 &696644825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696644822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ee365a6ca72914b9190f18b92c7d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &863454717
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,10 +957,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startBounceTime: 0.2
-  spinTime: 6
+  spinTime: 4
   stopBounceTime: 0.5
   spinSpeed: 4000
-  bounceHeight: 30
+  bounceHeight: 60
 --- !u!114 &863454720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1175,10 +1203,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startBounceTime: 0.2
-  spinTime: 6
+  spinTime: 4
   stopBounceTime: 0.5
   spinSpeed: 4000
-  bounceHeight: 30
+  bounceHeight: 60
 --- !u!114 &1025087725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1227,7 +1255,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 137.34, y: 155.2}
+  m_AnchoredPosition: {x: 137.34003, y: 155.20001}
   m_SizeDelta: {x: 84.68, y: 72.18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1135987410
@@ -1381,7 +1409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 171.15, y: 241.2799}
+  m_AnchoredPosition: {x: 171.14996, y: 241.2799}
   m_SizeDelta: {x: 152.3, y: 72.18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1409415002
@@ -1460,7 +1488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 390.49, y: 155.2}
+  m_AnchoredPosition: {x: 390.49, y: 155.20001}
   m_SizeDelta: {x: 411.09, y: 72.18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1438694137
@@ -1611,7 +1639,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1628,7 +1656,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1530567918}
+  m_TargetGraphic: {fileID: 512611289}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -1906,7 +1934,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1930268066}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 641939213}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: Spinn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1930268066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2082,7 +2122,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -2099,7 +2139,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1984807623}
+  m_TargetGraphic: {fileID: 142694355}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
