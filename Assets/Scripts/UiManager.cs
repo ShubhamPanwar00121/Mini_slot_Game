@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class UiManager : MonoBehaviour
 {
     [SerializeField] private ChangeValueUi setCoinPerLineUi, setPerCoinValueUi, setTotalBetUi;
-    [SerializeField] private Transform setBetPanel;
+    [SerializeField] private Transform setBetPanel, betMax;
     [SerializeField] private Text betText, creditText;
 
     private float maxCoinPerLine = 10f;
@@ -43,6 +43,14 @@ public class UiManager : MonoBehaviour
     {
         if (!setBetPanel.gameObject.activeInHierarchy) setBetPanel.gameObject.SetActive(true);
         ChangeBetData(ChangeValueType.TotalBet, false);
+    }
+
+    public void BetMax()
+    {
+        coinPerLine = maxCoinPerLine;
+        coinValue = maxCoinValue;
+
+        SetUi();
     }
 
     public void ChangeBetData(ChangeValueType cvt, bool increase)
@@ -94,7 +102,6 @@ public class UiManager : MonoBehaviour
                 break;
         }
 
-        // Clamp values just to be safe
         coinPerLine = Mathf.Clamp(coinPerLine, 1f, maxCoinPerLine);
         coinValue = Mathf.Clamp(coinValue, 0.1f, maxCoinValue);
 
@@ -110,6 +117,7 @@ public class UiManager : MonoBehaviour
         bool canIncreaseBet = (coinPerLine < maxCoinPerLine) || (coinValue < maxCoinValue);
         bool canDecreaseBet = (coinPerLine > 1) || (coinValue > 0.1f);
 
+        betMax.gameObject.SetActive(canIncreaseBet);
         setTotalBetUi.UpdateUi(betAmount, canIncreaseBet, canDecreaseBet);
         SetAmounts();
     }

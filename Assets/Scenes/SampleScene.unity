@@ -1155,6 +1155,7 @@ MonoBehaviour:
   setPerCoinValueUi: {fileID: 1398416654}
   setTotalBetUi: {fileID: 1944800439}
   setBetPanel: {fileID: 702307485}
+  betMax: {fileID: 828055376}
   betText: {fileID: 1438694137}
   creditText: {fileID: 1746971996}
 --- !u!1 &696644822
@@ -1414,7 +1415,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 828055378}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 641939213}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: BetMax
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &828055378
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -32,8 +32,8 @@ public class ChangeValueUi : MonoBehaviour
     public void UpdateUi(float val, bool enableIncrease, bool enableDecrease)
     {
         valueText.text = val.ToString();
-        increaseBtn.enabled = enableIncrease;
-        DecreaseBtn.enabled = enableDecrease;
+        increaseBtn.gameObject.SetActive(enableIncrease);
+        DecreaseBtn.gameObject.SetActive(enableDecrease);
     }
 }
 
