@@ -59,6 +59,9 @@ public class GameManager : MonoBehaviour
 
     private void DecideReward(CardBehaviour[,] finalMatrix)
     {
+        CustomEvents.InvokeCreditChanged(balance + 10000);
+
+        return;
         float totalReward = 0f;
         int rowsToCheck = 3;
         int columnCount = finalMatrix.GetLength(0);
@@ -138,8 +141,8 @@ public class GameManager : MonoBehaviour
 
         if (totalReward > 0f)
         {
-            //float reward = totalReward * 
-            //Debug.Log($"Total Win: {totalReward}");
+            float reward = totalReward * uiManager.GetPerCardBet();
+            CustomEvents.InvokeCreditChanged(balance + reward);
         }
         else
         {

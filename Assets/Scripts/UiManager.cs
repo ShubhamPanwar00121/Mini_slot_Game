@@ -8,20 +8,34 @@ public class UiManager : MonoBehaviour
     [SerializeField] private ChangeValueUi setCoinPerLineUi, setPerCoinValueUi, setTotalBetUi;
     [SerializeField] private Transform setBetPanel, betMax;
     [SerializeField] private Text betText, creditText;
-    public float CoinIncreaseTime = 2f;
+    public float CoinIncreaseTime = 1.5f;
 
     private float maxCoinPerLine = 10f;
     private float maxCoinValue = 0.5f;
     private float coinPerLine = 1f;
     private float coinValue = 0.1f;
     private float betAmount;
+    private bool spinning = false;
 
     private void Start()
     {
-        betAmount = coinPerLine * coinValue;
+        betAmount = coinPerLine * coinValue * 9;
         SetAmounts();
         setBetPanel.gameObject.SetActive(false);
         GameManager.Instance.SetUiManager(this);
+        CustomEvents.creditChanged += GiveReward;
+        CustomEvents.spinnComplete += SpinComplete;
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.creditChanged -= GiveReward;
+        CustomEvents.spinnComplete -= SpinComplete;
+    }
+
+    private void SpinComplete(CardBehaviour[,] matrix)
+    {
+        spinning = false;
     }
 
     private void SetAmounts()
@@ -32,6 +46,7 @@ public class UiManager : MonoBehaviour
 
     public void Spinn()
     {
+        spinning = true;
         GameManager.Instance.SetBalance(GameManager.Instance.GetBalance() - betAmount);
         SetAmounts();
         CustomEvents.InvokeSpinn();
@@ -53,13 +68,15 @@ public class UiManager : MonoBehaviour
     {
         coinPerLine = maxCoinPerLine;
         coinValue = maxCoinValue;
-        betAmount = coinPerLine * coinValue;
+        betAmount = coinPerLine * coinValue * 9;
 
         SetUi();
     }
 
     public void ChangeBetData(ChangeValueType cvt, bool increase)
     {
+        if (spinning) return;
+
         switch (cvt)
         {
             case ChangeValueType.CoinPerLine:
@@ -110,7 +127,7 @@ public class UiManager : MonoBehaviour
         coinPerLine = Mathf.Clamp(coinPerLine, 1f, maxCoinPerLine);
         coinValue = Mathf.Clamp(coinValue, 0.1f, maxCoinValue);
 
-        betAmount = coinValue * coinPerLine;
+        betAmount = coinValue * coinPerLine * 9;
         SetUi();
     }
 
@@ -130,6 +147,16 @@ public class UiManager : MonoBehaviour
     public float GetBetAmount()
     {
         return betAmount;
+    }
+
+    public float GetPerCardBet()
+    {
+        return coinValue * coinPerLine;
+    }
+
+    public void GiveReward(double targetValue)
+    {
+        StartCoroutine(IncreaseCreditText(targetValue));
     }
 
     public IEnumerator IncreaseCreditText(double targetValue)
