@@ -5,15 +5,15 @@ public class CardBehaviour : MonoBehaviour
 {
     public RectTransform rectTransform;
     [SerializeField] private Image Icon;
-    private float multiFact;
-    private CardType cardType;
-    private int index;
+    public float MultiFact;
+    public CardType CardType;
+    public int Index;
 
     public void SetCard(Sprite icon, CardType type, float multiFact, int index)
     {
         Icon.sprite = icon;
-        cardType = type;
-        this.multiFact = multiFact;
-        this.index = index;
+        CardType = type;
+        MultiFact = multiFact;
+        Index = index;
     }
 }

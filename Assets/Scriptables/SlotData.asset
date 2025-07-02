@@ -20,36 +20,36 @@ MonoBehaviour:
   - CardIndex: 1
     Icon: {fileID: 21300000, guid: cce74cbd56a59dd45a9f05edd62c0087, type: 3}
     multiFactor: 10
-    cardType: 0
+    cardType: 1
   - CardIndex: 2
     Icon: {fileID: 21300000, guid: 01a13ae750f4ea947ad0a20c8a4e1700, type: 3}
     multiFactor: 10
-    cardType: 0
+    cardType: 3
   - CardIndex: 3
     Icon: {fileID: 21300000, guid: 1b34abc27de9ca84083e33fc126d9ff1, type: 3}
     multiFactor: 10
-    cardType: 0
+    cardType: 2
   - CardIndex: 4
     Icon: {fileID: 21300000, guid: 088031c26bbad9d4c87483dbb63d36d5, type: 3}
     multiFactor: 10
-    cardType: 0
+    cardType: 4
   - CardIndex: 6
     Icon: {fileID: 21300000, guid: ffcab9e682a60844ca3e4866a775c70a, type: 3}
     multiFactor: 4
-    cardType: 5
+    cardType: 9
   - CardIndex: 7
     Icon: {fileID: 21300000, guid: bfa5949a2cfc50642ab78b84fc610269, type: 3}
     multiFactor: 3
-    cardType: 3
+    cardType: 7
   - CardIndex: 5
     Icon: {fileID: 21300000, guid: 89c6978410a9b4d4a8c7a29e83dc0a8e, type: 3}
     multiFactor: 2
-    cardType: 4
+    cardType: 8
   - CardIndex: 8
     Icon: {fileID: 21300000, guid: 41742909c4538d244a4f924ee14f6a4c, type: 3}
     multiFactor: 0
-    cardType: 2
+    cardType: 6
   - CardIndex: 9
     Icon: {fileID: 21300000, guid: 84da606ec1b01b34cb69515a88d4ee31, type: 3}
     multiFactor: 0
-    cardType: 1
+    cardType: 5

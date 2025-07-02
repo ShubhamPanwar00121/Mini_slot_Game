@@ -17,6 +17,7 @@ public class SpinnAnimation : MonoBehaviour
     private float startY;
     private Vector2 targetStopPosition;
     private List<CardBehaviour> cards = new List<CardBehaviour>();
+    public bool AnimationComplete;
 
     void OnEnable()
     {
@@ -25,6 +26,7 @@ public class SpinnAnimation : MonoBehaviour
         startY = startPosition.y;
         elapsedTime = 0f;
         currentState = State.StartBounce;
+        AnimationComplete = false;
     }
 
     void Update()
@@ -113,6 +115,12 @@ public class SpinnAnimation : MonoBehaviour
             c.transform.SetParent(transform);
         }
 
+        AnimationComplete = true;
         this.enabled = false;
+    }
+
+    public List<CardBehaviour> GetCards()
+    {
+        return cards;
     }
 }

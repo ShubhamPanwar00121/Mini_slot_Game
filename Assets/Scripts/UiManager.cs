@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] private ChangeValueUi setCoinPerLineUi, setPerCoinValueUi, setTotalBetUi;
     [SerializeField] private Transform setBetPanel, betMax;
     [SerializeField] private Text betText, creditText;
+    public float CoinIncreaseTime = 2f;
 
     private float maxCoinPerLine = 10f;
     private float maxCoinValue = 0.5f;
@@ -128,5 +130,29 @@ public class UiManager : MonoBehaviour
     public float GetBetAmount()
     {
         return betAmount;
+    }
+
+    public IEnumerator IncreaseCreditText(double targetValue)
+    {
+        if (!double.TryParse(creditText.text, out double current))
+        {
+            current = 0.0;
+        }
+
+        float duration = CoinIncreaseTime;
+        float elapsed = 0f;
+        double startValue = current;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            double t = Mathf.Clamp01(elapsed / duration);
+            double newValue = startValue + (targetValue - startValue) * t;
+
+            creditText.text = newValue.ToString("F2");
+            yield return null;
+        }
+
+        creditText.text = targetValue.ToString("F2");
     }
 }

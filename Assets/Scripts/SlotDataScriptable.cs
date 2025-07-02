@@ -18,10 +18,15 @@ public class SlotCard
 
 public enum CardType
 {
-    Normal,
+    Heart_1,
+    Heart_2,
+    Heart_3,
+    Shield,
+    Cup,
     Wild,
     Scatter,
     Q,
     J,
-    K
+    K,
+    None
 }
