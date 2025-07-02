@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
         set => PlayerPrefs.SetString("BALANCE", value.ToString());
     }
     private UiManager uiManager;
+    private List<ShakeAnimation> shakeAnimations = new List<ShakeAnimation>();
 
     void Awake()
     {
@@ -63,9 +65,11 @@ public class GameManager : MonoBehaviour
         int rowsToCheck = 3;
         int columnCount = finalMatrix.GetLength(0);
         CardType matchedType = CardType.None;
+        shakeAnimations.Clear();
 
         for (int y = 0; y < rowsToCheck; y++)
         {
+            List<ShakeAnimation> temp = new List<ShakeAnimation>();
             CardType baseType = CardType.None;
             int matchCount = 0;
 
@@ -80,6 +84,7 @@ public class GameManager : MonoBehaviour
                         baseType = card.CardType;
                         matchCount += 1;
                         matchedType = card.CardType;
+                        temp.Add(card.GetComponent<ShakeAnimation>());
                     }
                     else
                     {
@@ -97,10 +102,12 @@ public class GameManager : MonoBehaviour
                         matchCount += 1;
                         baseType = card.CardType;
                         matchedType = card.CardType;
+                        temp.Add(card.GetComponent<ShakeAnimation>());
                     }
                     else if (card.CardType == baseType || card.CardType == CardType.Wild)
                     {
                         matchCount += 1;
+                        temp.Add(card.GetComponent<ShakeAnimation>());
                     }
                     else
                     {
@@ -112,6 +119,10 @@ public class GameManager : MonoBehaviour
             if (matchCount >= 3 && matchedType != CardType.Wild && matchedType != CardType.None)
             { 
                 totalReward += matchCount * GetCardMultiFact(baseType);
+                foreach (ShakeAnimation sa in temp)
+                {
+                    shakeAnimations.Add(sa);
+                }
             }
         }
 
@@ -138,6 +149,11 @@ public class GameManager : MonoBehaviour
         {
             float reward = totalReward * uiManager.GetPerCardBet();
             CustomEvents.InvokeCreditChanged(balance + reward, reward);
+
+            foreach (ShakeAnimation sa in shakeAnimations)
+            {
+                sa.enabled = true;
+            }
         }
     }
 
